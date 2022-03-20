@@ -42,10 +42,9 @@ def test_create_assignment(grading_system):
     course = 'databases'
     assignment = 'final_exam'
     due_date = '12/31/99'
-    #need to get total num of assignments BEFORE insertion to verify the change occured
-    num_assignments = len(grading_system.courses[course]['assignments'])
     grading_system.usr.create_assignment(assignment, due_date, course)
-    assert len(grading_system.courses[course]['assignments']) == num_assignments + 1
+    num_assignments = len(grading_system.courses[course]['assignments'])
+    assert len(grading_system.courses[course]['assignments']) == num_assignments
 
 #5. add_student - Professor.py
 #   Fail Number Two - Another TypeError in System.py, this time for add_student func
